@@ -19,6 +19,10 @@ class Forum < ActiveRecord::Base
   #resourcify done during specs setup to be able to use custom user classes
 end
 
+class Board < Forum
+end
+
+
 class Group < ActiveRecord::Base
   #resourcify done during specs setup to be able to use custom user classes
 end
