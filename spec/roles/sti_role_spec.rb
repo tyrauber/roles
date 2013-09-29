@@ -3,7 +3,7 @@ require "spec_helper"
 describe Roles::Role do
   before do
     User.rolify
-    Board.resourcify
+    Forum.resourcify
     reset_data
 
     @admin = User.first
