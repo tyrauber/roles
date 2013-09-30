@@ -26,9 +26,14 @@ def reset_data
   Customer.create(:login => "zombie")
 
   # Resources
-  Forum.create(:name => "forum 1")
-  Forum.create(:name => "forum 2")
-  Forum.create(:name => "forum 3")
+  Forum.create(:name => "forum 1", :type => "Forum")
+  Forum.create(:name => "forum 2", :type => "Forum")
+  Forum.create(:name => "forum 3", :type => "Forum")
+
+  # Resources
+  Board.create(:name => "board 1", :type => "Board")
+  Board.create(:name => "board 2", :type => "Board")
+  Board.create(:name => "board 3", :type => "Board")
 
   Group.create(:name => "group 1")
   Group.create(:name => "group 2")

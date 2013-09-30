@@ -34,18 +34,18 @@ module Roles
   end
 
   def user_table
-    @user_table ||= self.user_table.tableize
+    @user_table ||= self.user_table.present? ? self.user_table.tableize : self.base_class.user_table.tableize
   end
 
   def role_table
-    @role_table ||= self.role_cname.tableize
+    @role_table ||=  self.role_cname.present? ? self.role_cname.tableize : self.base_class.role_cname.tableize
   end
   
   def user_class
-    @user_class ||= self.user_cname.constantize
+    @user_class ||= self.user_cname.present? ? self.user_cname.constantize : self.base_class.user_cname.constantize
   end
 
   def role_class
-    @role_class ||= self.role_cname.constantize
+    @role_class ||= self.role_cname.present? ? self.role_cname.constantize : self.base_class.role_cname.constantize
   end
 end

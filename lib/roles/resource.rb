@@ -16,9 +16,9 @@ module Roles
 
     def users_with_role(role_name = nil)
       if role_name.nil?
-        self.class.user_class.includes(self.class.role_table).where("#{self.class.role_table}.resource_type LIKE '%s'", self.class.to_s).where("#{self.class.role_table}.resource_id = %s", self.id)
+        self.class.user_class.includes(self.class.role_table).where("#{self.class.role_table}.resource_type LIKE '%s'", self.class.base_class.to_s).where("#{self.class.role_table}.resource_id = %s", self.id)
       else
-        self.class.user_class.includes(self.class.role_table).where("#{self.class.role_table}.resource_type LIKE '%s'", self.class.to_s).where("#{self.class.role_table}.resource_id = %s", self.id).where("#{self.class.role_table}.name LIKE '%s'", role_name.to_s)
+        self.class.user_class.includes(self.class.role_table).where("#{self.class.role_table}.resource_type LIKE '%s'", self.class.base_class.to_s).where("#{self.class.role_table}.resource_id = %s", self.id).where("#{self.class.role_table}.name LIKE '%s'", role_name.to_s)
       end
     end
   end

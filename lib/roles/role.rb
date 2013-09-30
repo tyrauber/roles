@@ -65,7 +65,7 @@ module Roles
 
     def resources_with_role(resource_class, role_name = nil)
       if role_name.nil?
-        resource_class.includes(self.class.role_table).where("#{self.class.role_table}.#{self.class.user_cname.underscore.singularize}_id = %s", self.id).where("#{self.class.role_table}.resource_type LIKE '%s'", resource_class.to_s)
+        resource_class.includes(self.class.role_table).where("#{self.class.role_table}.#{self.class.user_cname.underscore.singularize}_id = %s", self.id).where("#{self.class.role_table}.resource_type LIKE '%s'", resource_class.base_class.to_s)
       else
         resource_class.includes(self.class.role_table).where("#{self.class.role_table}.#{self.class.user_cname.underscore.singularize}_id = %s", self.id).where("#{self.class.role_table}.resource_type LIKE '%s'", resource_class.base_class.to_s).where("#{self.class.role_table}.name LIKE '%s'", role_name.to_s)
       end

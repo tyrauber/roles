@@ -15,6 +15,7 @@ ActiveRecord::Schema.define do
 
   create_table(:forums) do |t|
     t.string :name
+    t.string :type
   end
 
   create_table(:groups) do |t|
